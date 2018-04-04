@@ -320,7 +320,7 @@ end
 
 
 function bench_nested_function(nIters, isDryRun)
-name = 'Nested function';
+name = 'nop() nested function';
 t0 = tic;
 for i = 1:nIters
    nested_nop();
