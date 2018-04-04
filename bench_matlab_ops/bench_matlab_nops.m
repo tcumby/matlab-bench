@@ -64,6 +64,8 @@ show_result(name, nIters, te, isDryRun);
 
 bench_anonymous_function(nIters, isDryRun);
 
+bench_nested_function(nIters, isDryRun);
+
 % Skip this one... it benches the same for me
 %bench_anon_fcn_in_fcn(nIters, isDryRun);
 
@@ -316,3 +318,16 @@ function nop_subfunction()
 %NOP_SUBFUNCTION Subfunction (local function) that does nothing
 end
 
+
+function bench_nested_function(nIters, isDryRun)
+name = 'Nested function';
+t0 = tic;
+for i = 1:nIters
+   nested_nop();
+end
+te = toc(t0);
+show_result(name, nIters, te, isDryRun);
+
+   function nested_nop()
+   end
+end
